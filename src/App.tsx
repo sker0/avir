@@ -265,7 +265,7 @@ export default function App() {
                   onClick={() => document.getElementById('partners')?.scrollIntoView({ behavior: 'smooth' })}
                   className="px-8 py-4 bg-white/10 backdrop-blur-md border border-white/20 text-white font-bold rounded-full hover:bg-white/20 transition-all"
                 >
-                  협력 크리에이터
+                  크리에이터 라인업
                 </button>
               </motion.div>
             </div>
@@ -402,7 +402,8 @@ export default function App() {
                         animate={{ opacity: 1, scale: 1, y: i === 0 ? 0 : i === 4 ? 0 : "-50%" }}
                         exit={{ opacity: 0, scale: 0.9, y: i === 0 ? 0 : i === 4 ? 0 : "-50%" }}
                         transition={{ type: "spring", damping: 25, stiffness: 300 }}
-                        className={`absolute left-0 right-0 z-50 liquid-glass !rounded-3xl p-8 md:p-10 border-primary shadow-[0_40px_80px_rgba(0,0,0,0.8),0_0_50px_rgba(255,51,102,0.3)] flex flex-col justify-between
+                        className={`absolute left-0 right-0 z-[200] !rounded-3xl p-8 md:p-10 border border-primary shadow-[0_40px_80px_rgba(0,0,0,0.8),0_0_50px_rgba(255,51,102,0.3)] flex flex-col justify-between
+                          bg-[#0a0a0f]
                           ${i === 0 ? 'top-0 origin-top' : i === 4 ? 'bottom-0 origin-bottom' : 'top-1/2 origin-center'}`}
                         style={{ minHeight: '320px' }}
                         onClick={(e) => e.stopPropagation()}
