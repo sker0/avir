@@ -240,11 +240,11 @@ export default function App() {
               </motion.div>
 
               <motion.h1
-                initial={{ opacity: 0, y: 40 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.8, delay: 0.2 }}
-                className="text-4xl md:text-7xl font-black mb-6 tracking-tight leading-tight"
+                  initial={{ opacity: 0, y: 40 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.8, delay: 0.2 }}
+                  className="text-4xl md:text-7xl font-black mb-6 tracking-tight leading-tight break-keep"
               >
                 크리에이터의 가치를 <span className="text-primary">시스템</span>으로 증명하다<br />
                 <span className="text-white/40 text-3xl md:text-5xl">Proving Creator Value through Systems</span>
