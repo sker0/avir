@@ -228,7 +228,7 @@ export default function App() {
               <motion.div
                 initial={{ opacity: 0, y: 60, scale: 0.9 }}
                 whileInView={{ opacity: 1, y: 0, scale: 1 }}
-                viewport={{ once: false, margin: "-100px" }}
+                viewport={{ once: true, margin: "-100px" }}
                 transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
                 className="mb-8 md:mb-12"
               >
@@ -241,7 +241,7 @@ export default function App() {
               <motion.h1
                 initial={{ opacity: 0, y: 40 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: false }}
+                viewport={{ once: true }}
                 transition={{ duration: 0.8, delay: 0.2 }}
                 className="text-4xl md:text-7xl font-black mb-6 tracking-tight leading-tight"
               >
@@ -252,7 +252,7 @@ export default function App() {
               <motion.p
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: false }}
+                viewport={{ once: true }}
                 transition={{ duration: 0.8, delay: 0.3 }}
                 className="text-lg md:text-xl text-white/60 mb-10 max-w-2xl mx-auto"
               >
@@ -263,7 +263,7 @@ export default function App() {
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: false }}
+                viewport={{ once: true }}
                 transition={{ duration: 0.8, delay: 0.4 }}
                 className="flex flex-wrap justify-center gap-4"
               >
@@ -307,7 +307,7 @@ export default function App() {
               <motion.div
                 initial={{ opacity: 0, x: -50 }}
                 whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: false }}
+                viewport={{ once: true }}
                 transition={{ duration: 0.8 }}
                 className="space-y-4 md:space-y-8"
               >
@@ -354,7 +354,7 @@ export default function App() {
                     key={i}
                     initial={{ opacity: 0, y: 30 }}
                     whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: false }}
+                    viewport={{ once: true }}
                     transition={{ duration: 0.6, delay: i * 0.2 }}
                     whileHover={{ x: 10 }}
                     className={`bento-card p-6 md:p-8 flex items-start gap-6 group cursor-default bg-gradient-to-br ${value.color}`}
@@ -392,7 +392,7 @@ export default function App() {
                   key={i}
                   initial={{ opacity: 0, x: i % 2 === 0 ? -100 : 100 }}
                   whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: false, amount: 0.5 }}
+                  viewport={{ once: true, amount: 0.5 }}
                   transition={{ duration: 0.8, delay: i * 0.1, type: "spring", damping: 20 }}
                   onClick={() => setActiveService(activeService === i ? null : i)}
                   className="relative h-16 md:h-20 cursor-pointer group"
@@ -462,6 +462,9 @@ export default function App() {
                 <span className="text-primary font-mono tracking-widest uppercase text-[10px] md:text-xs">Portfolio</span>
                 <h2 className="text-3xl md:text-4xl font-bold mt-1">프로젝트</h2>
               </div>
+              <button className="flex items-center gap-2 text-primary font-bold hover:gap-4 transition-all text-xs md:text-sm">
+                상세 페이지 바로가기 <Icon icon="line-md:arrow-right" className="text-lg" />
+              </button>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-4 flex-grow overflow-hidden">
@@ -472,7 +475,7 @@ export default function App() {
                   onClick={() => setSelectedProject(project.id)}
                   whileInView={{ opacity: 1, y: 0, scale: 1 }}
                   initial={{ opacity: 0, y: 20, scale: 0.98 }}
-                  viewport={{ once: false, amount: 0.1 }}
+                  viewport={{ once: true, amount: 0.1 }}
                   transition={{ duration: 0.5, delay: 0.05 * i }}
                   whileHover={{ scale: 1 }}
                   className="relative bento-card overflow-hidden group cursor-pointer h-full min-h-[200px] md:min-h-[240px]"
@@ -545,7 +548,7 @@ export default function App() {
             <motion.div
               initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: false }}
+              viewport={{ once: true }}
               transition={{ duration: 0.8 }}
               className="mb-4 text-center px-6 pt-12"
             >
@@ -563,7 +566,7 @@ export default function App() {
                 <div className="text-center">
                   <span className="text-xs md:text-sm font-mono text-white/80 uppercase tracking-[0.2em] font-bold">Our Creators</span>
                 </div>
-                <div className="relative flex overflow-hidden py-2">
+                <div className="relative flex overflow-hidden py-2 touch-pan-y">
                   <motion.div
                     className="flex gap-4 md:gap-6"
                     animate={{ x: [0, "-50%"] }}
@@ -592,7 +595,7 @@ export default function App() {
                   <span className="text-xs md:text-sm font-mono text-white/80 uppercase tracking-[0.2em] font-bold">Collaborated Brands</span>
                 </div>
                 <div className="flex flex-col gap-3">
-                  <div className="relative flex overflow-hidden py-1">
+                  <div className="relative flex overflow-hidden py-1 touch-pan-y">
                     <motion.div
                       className="flex items-center"
                       animate={{ x: [0, "-50%"] }}
@@ -609,7 +612,7 @@ export default function App() {
                       ))}
                     </motion.div>
                   </div>
-                  <div className="relative flex overflow-hidden py-1">
+                  <div className="relative flex overflow-hidden py-1 touch-pan-y">
                     <motion.div
                       className="flex items-center"
                       animate={{ x: ["-50%", 0] }}
@@ -639,7 +642,7 @@ export default function App() {
               <motion.div
                 initial={{ opacity: 0, y: 40 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: false }}
+                viewport={{ once: true }}
                 transition={{ duration: 0.8 }}
                 className="lg:col-span-5"
               >
@@ -684,7 +687,7 @@ export default function App() {
               <motion.div
                 initial={{ opacity: 0, y: 40 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: false }}
+                viewport={{ once: true }}
                 transition={{ duration: 0.8, delay: 0.2 }}
                 className="lg:col-span-7 bento-card bg-white/10 border-white/20 p-6 md:p-8"
               >
