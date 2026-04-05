@@ -212,8 +212,6 @@ export default function App() {
 
             {/* ── Hero ── */}
             <section className="min-h-screen md:h-screen w-full md:snap-start md:snap-always flex flex-col relative overflow-hidden">
-
-              {/* 상단 네비게이션: absolute로 띄워서 메인 레이아웃 계산에서 제외 */}
               <nav className="absolute top-0 left-1/2 -translate-x-1/2 z-50 px-6 py-8 md:py-12 max-w-7xl w-full flex justify-between items-center">
                 <motion.div initial={{ opacity: 0, x: -20 }} animate={{ opacity: 1, x: 0 }}>
                   <Logo className="h-10 md:h-14 w-auto object-contain drop-shadow-[0_0_20px_rgba(255,145,182,0.5)]" />
@@ -226,66 +224,29 @@ export default function App() {
                   <a href="#contact" className="hover:text-primary transition-colors">Contact</a>
                 </motion.div>
               </nav>
-
-              {/* 메인 콘텐츠 영역: flex-1과 justify-center로 화면 정중앙 배치 */}
-              <div className="flex-1 flex flex-col justify-center items-center px-6 pt-20 md:pt-0 relative z-10">
+              <div className="flex-1 flex flex-col justify-center items-center px-6 pt-24 pb-32 md:pt-0 md:pb-0 relative z-10">
                 <div className="max-w-7xl w-full flex flex-col items-center text-center">
-
-              {/* 로고 원형 아이콘 */}
-              <motion.div
-                  initial={{ opacity: 0, y: 60, scale: 0.9 }}
-                  animate={{ opacity: 1, y: 0, scale: 1 }}
-                  transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
-                  className="mb-8 md:mb-12"
-              >
-                <div className="w-40 h-40 md:w-64 md:h-64 bg-primary/20 rounded-full flex items-center justify-center backdrop-blur-2xl border border-primary/30 relative group">
-                  <div className="absolute inset-0 bg-primary/10 rounded-full blur-3xl group-hover:bg-primary/20 transition-all duration-700" />
-                  <Logo className="w-3/5 h-3/5 object-contain relative z-10 drop-shadow-[0_0_30px_rgba(255,145,182,0.6)]" />
-                </div>
-              </motion.div>
+                  <motion.div initial={{ opacity: 0, y: 60, scale: 0.9 }} animate={{ opacity: 1, y: 0, scale: 1 }} transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }} className="mb-8 md:mb-12">
+                    <div className="w-40 h-40 md:w-64 md:h-64 bg-primary/20 rounded-full flex items-center justify-center backdrop-blur-2xl border border-primary/30 relative group">
+                      <div className="absolute inset-0 bg-primary/10 rounded-full blur-3xl group-hover:bg-primary/20 transition-all duration-700" />
+                      <Logo className="w-3/5 h-3/5 object-contain relative z-10 drop-shadow-[0_0_30px_rgba(255,145,182,0.6)]" />
+                    </div>
+                  </motion.div>
 
               {/* 텍스트 및 버튼 섹션 */}
-              <motion.h1
-                  initial={{ opacity: 0, y: 40 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.8, delay: 0.2 }}
-                  className="text-4xl md:text-7xl font-black mb-6 tracking-tight leading-tight break-keep"
-              >
+              <motion.h1 initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.8, delay: 0.2 }} className="text-4xl md:text-7xl font-black mb-6 tracking-tight leading-tight break-keep">
                 크리에이터의 가치를 <span className="text-primary">시스템</span>으로 증명하다<br />
-                <span className="text-white/40 text-2xl md:text-5xl">Proving Creator Value through Systems</span>
+                <span className="text-white/40 text-2xl md:text-5xl block mt-2">Proving Creator Value through Systems</span>
               </motion.h1>
 
-              <motion.p
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.8, delay: 0.3 }}
-                className="text-lg md:text-xl text-white/60 mb-10 max-w-2xl mx-auto"
-              >
+              <motion.p initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.8, delay: 0.3 }} className="text-base md:text-xl text-white/60 mb-10 max-w-2xl mx-auto break-keep">
                 아비르는 크리에이터의 가능성을 발견하고, 지속 가능한 <br className="hidden md:block" />
                 성장으로 이어주는 차세대 MCN입니다.
               </motion.p>
 
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.8, delay: 0.4 }}
-                className="flex flex-wrap justify-center gap-4"
-              >
-                <button
-                  onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
-                  className="px-8 py-4 bg-primary text-black font-bold rounded-full hover:scale-105 transition-transform shadow-[0_0_30px_rgba(255,145,182,0.4)]"
-                >
-                  파트너십 문의
-                </button>
-                <button
-                  onClick={() => document.getElementById('partners')?.scrollIntoView({ behavior: 'smooth' })}
-                  className="px-8 py-4 bg-white/10 backdrop-blur-md border border-white/20 text-white font-bold rounded-full hover:bg-white/20 transition-all"
-                >
-                  협력 크리에이터
-                </button>
+              <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.8, delay: 0.4 }} className="flex flex-wrap justify-center gap-4">
+                <button onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })} className="px-8 py-4 bg-primary text-black font-bold rounded-full hover:scale-105 transition-transform shadow-[0_0_30px_rgba(255,145,182,0.4)] text-sm md:text-base">파트너십 문의</button>
+                <button onClick={() => document.getElementById('partners')?.scrollIntoView({ behavior: 'smooth' })} className="px-8 py-4 bg-white/10 backdrop-blur-md border border-white/20 text-white font-bold rounded-full hover:bg-white/20 transition-all text-sm md:text-base">협력 크리에이터</button>
               </motion.div>
             </div>
 
@@ -293,7 +254,7 @@ export default function App() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 1.5, duration: 1 }}
-              className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2"
+              className="absolute bottom-6 md:bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 z-20 pointer-events-none"
             >
               <span className="text-[10px] font-mono uppercase tracking-[0.2em] text-white/30">Scroll</span>
               <div className="w-[20px] h-[32px] border-2 border-white/20 rounded-full flex justify-center p-1">
