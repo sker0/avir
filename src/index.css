@@ -1,0 +1,119 @@
+@import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css");
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Pretendard", ui-sans-serif, system-ui, sans-serif;
+  --color-primary: #FF91B6;
+  --color-accent-mint: #00FF87;
+  --color-accent-purple: #7C3AED;
+  --radius-bento: 32px;
+}
+
+@layer base {
+  html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    overflow: hidden; /* 최상위 스크롤을 막아 컨테이너 스냅을 강제함 */
+  }
+}
+
+.bento-card {
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.1) 0%,
+    rgba(255, 255, 255, 0.02) 100%
+  );
+  backdrop-filter: blur(20px) saturate(160%);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  box-shadow: 
+    0 8px 32px 0 rgba(0, 0, 0, 0.3),
+    inset 0 1px 1px 0 rgba(255, 255, 255, 0.2);
+  @apply rounded-[var(--radius-bento)] p-8 transition-all duration-500 hover:bg-white/10 hover:border-white/20;
+}
+
+.liquid-glass {
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.15) 0%,
+    rgba(255, 255, 255, 0.05) 100%
+  );
+  backdrop-filter: blur(32px) saturate(180%);
+  -webkit-backdrop-filter: blur(32px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  box-shadow: 
+    0 20px 50px 0 rgba(0, 0, 0, 0.5),
+    inset 0 1px 2px 0 rgba(255, 255, 255, 0.4);
+  @apply rounded-full px-8 py-3;
+}
+
+.text-gradient {
+  @apply bg-clip-text text-transparent bg-gradient-to-r from-primary to-accent-purple;
+}
+
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-33.333%); }
+}
+
+@keyframes marquee-reverse {
+  0% { transform: translateX(-33.333%); }
+  100% { transform: translateX(0); }
+}
+
+.animate-marquee {
+  display: flex;
+  width: max-content;
+  animation: marquee 12s linear infinite;
+}
+
+.animate-marquee-reverse {
+  display: flex;
+  width: max-content;
+  animation: marquee-reverse 12s linear infinite;
+}
+
+/* 크리에이터 마퀴 — 브랜드보다 느리게 */
+.animate-marquee-slow {
+  display: flex;
+  width: max-content;
+  animation: marquee 30s linear infinite;
+}
+
+@keyframes pulse-custom {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.05); opacity: 0.8; }
+}
+
+.animate-pulse-custom {
+  animation: pulse-custom 2s infinite ease-in-out;
+}
+
+/* Unicorn Studio 워터마크 숨기기 (초강력 버전) */
+body > div[style*="z-index: 2147483647"],
+body > a[href*="unicorn.studio"],
+div[style*="z-index: 2147483647"], 
+div[style*="z-index: 9999999"],
+div[style*="z-index: 10000000"],
+div[style*="z-index: 2147483646"],
+a[href*="unicorn.studio"],
+[class*="unicorn-watermark"],
+[id*="unicorn-watermark"],
+[class*="UnicornWatermark"],
+[id*="UnicornWatermark"],
+div[style*="position: fixed"][style*="bottom: 0"][style*="right: 0"] {
+    display: none !important;
+    visibility: hidden !important;
+    opacity: 0 !important;
+    pointer-events: none !important;
+    width: 0 !important;
+    height: 0 !important;
+    max-width: 0 !important;
+    max-height: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    overflow: hidden !important;
+    position: fixed !important;
+    top: -9999px !important;
+    left: -9999px !important;
+}
