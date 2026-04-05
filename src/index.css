@@ -14,7 +14,8 @@
     height: 100%;
     margin: 0;
     padding: 0;
-    overflow: hidden; /* 최상위 스크롤을 막아 컨테이너 스냅을 강제함 */
+    background-color: #000;
+    overflow: hidden;
   }
 }
 

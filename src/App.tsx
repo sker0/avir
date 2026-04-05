@@ -227,8 +227,7 @@ export default function App() {
             <div className="flex flex-col items-center text-center">
               <motion.div
                 initial={{ opacity: 0, y: 60, scale: 0.9 }}
-                whileInView={{ opacity: 1, y: 0, scale: 1 }}
-                viewport={{ once: true, margin: "-100px" }}
+                animate={{ opacity: 1, y: 0, scale: 1 }}
                 transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
                 className="mb-8 md:mb-12"
               >
@@ -277,7 +276,7 @@ export default function App() {
                   onClick={() => document.getElementById('partners')?.scrollIntoView({ behavior: 'smooth' })}
                   className="px-8 py-4 bg-white/10 backdrop-blur-md border border-white/20 text-white font-bold rounded-full hover:bg-white/20 transition-all"
                 >
-                  크리에이터 라인업
+                  협력 크리에이터
                 </button>
               </motion.div>
             </div>
@@ -462,9 +461,6 @@ export default function App() {
                 <span className="text-primary font-mono tracking-widest uppercase text-[10px] md:text-xs">Portfolio</span>
                 <h2 className="text-3xl md:text-4xl font-bold mt-1">프로젝트</h2>
               </div>
-              <button className="flex items-center gap-2 text-primary font-bold hover:gap-4 transition-all text-xs md:text-sm">
-                상세 페이지 바로가기 <Icon icon="line-md:arrow-right" className="text-lg" />
-              </button>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-4 flex-grow overflow-hidden">
