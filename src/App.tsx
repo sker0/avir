@@ -81,9 +81,9 @@ const brands = [
   { name: "YouTube", id: 10, logo: "/brands/youtube.png" },
   { name: "CELEBe", id: 11, logo: "/brands/celebe.png" },
   { name: "차다이렉트", id: 12, logo: "/brands/chadirect.png" },
-  { name: "올파킹", id: 12, logo: "/brands/allparking.png" },
+  { name: "allparking", id: 12, logo: "/brands/allparking.png" },
   { name: "숨캠핑", id: 12, logo: "/brands/sumcamp.jpg" },
-  { name: "KleverLAB", id: 12, logo: "/brands/kleverlab.png" },
+  { name: "클리버랩", id: 12, logo: "/brands/kleverlab.png" },
 ];
 
 export default function App() {
@@ -363,13 +363,13 @@ export default function App() {
         </section>
 
         {/* ── Services ── */}
-        <section id="services" className="h-screen w-full snap-start snap-always flex flex-col items-center justify-center relative overflow-hidden">
-          <div className="max-w-7xl mx-auto px-6 w-full flex flex-col h-full pt-28 pb-10">
+        <section id="services" className="h-screen w-full snap-start snap-always flex flex-col items-center justify-center relative">
+          <div className="max-w-7xl mx-auto px-6 w-full flex flex-col h-full pt-24 pb-10">
             <div className="mb-2">
               <span className="text-primary font-mono tracking-widest uppercase text-sm">Our Services</span>
               <h2 className="text-4xl md:text-5xl font-bold mt-2 text-white">서비스</h2>
             </div>
-            <div className="flex flex-col gap-4 md:gap-6 w-full relative flex-grow justify-center">
+            <div className="flex flex-col gap-4 md:gap-6 w-full relative flex-grow justify-center overflow-visible">
               {[
                 { title: "All-in-One Creator Care", desc: "라이브 스트리밍 전담 기술 지원 및 장비 제공", details: "라이브 스트리밍을 위한 전담 기술 지원. 실시간 채팅 매니저와 1,000만 원 상당의 고성능 방송 장비를 제공하여 오직 콘텐츠에만 집중할 수 있는 환경을 만듭니다.", icon: "ph:broadcast-bold" },
                 { title: "Visual Branding Lab", desc: "웹 화보 및 아티스트 브랜딩 전문 인프라", details: "웹 화보 및 아티스트 브랜딩을 위한 전문 인프라. 자택 근무 지원부터 스튜디오 메이크업, 촬영 장비 지원까지 크리에이터의 비주얼 영향력을 극대화합니다.", icon: "ph:camera-plus-bold" },
