@@ -199,7 +199,7 @@ export default function App() {
       </AnimatePresence>
 
       {/* Background: Unicorn Studio */}
-      <div className="fixed inset-0 z-0 opacity-60">
+      <div className="fixed inset-0 z-0 opacity-60 pointer-events-none">
         <UnicornScene
           projectId="sHEhLnsmNJ8taz1WbF18"
           sdkUrl="https://cdn.jsdelivr.net/gh/hiunicornstudio/unicornstudio.js@v2.1.6/dist/unicornStudio.umd.js"
@@ -278,7 +278,7 @@ export default function App() {
                   onClick={() => document.getElementById('partners')?.scrollIntoView({ behavior: 'smooth' })}
                   className="px-8 py-4 bg-white/10 backdrop-blur-md border border-white/20 text-white font-bold rounded-full hover:bg-white/20 transition-all"
                 >
-                  크리에이터 라인업
+                  협력 크리에이터
                 </button>
               </motion.div>
             </div>
@@ -463,9 +463,6 @@ export default function App() {
                 <span className="text-primary font-mono tracking-widest uppercase text-[10px] md:text-xs">Portfolio</span>
                 <h2 className="text-3xl md:text-4xl font-bold mt-1">프로젝트</h2>
               </div>
-              <button className="flex items-center gap-2 text-primary font-bold hover:gap-4 transition-all text-xs md:text-sm">
-                상세 페이지 바로가기 <Icon icon="line-md:arrow-right" className="text-lg" />
-              </button>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-4 flex-grow overflow-hidden">
