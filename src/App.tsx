@@ -369,7 +369,7 @@ export default function App() {
               <span className="text-primary font-mono tracking-widest uppercase text-sm">Our Services</span>
               <h2 className="text-4xl md:text-5xl font-bold mt-2 text-white">서비스</h2>
             </div>
-            <div className="flex flex-col gap-4 md:gap-6 w-full relative flex-grow justify-center overflow-visible">
+            <div className="flex flex-col gap-4 md:gap-6 w-full relative flex-grow justify-center overflow-visible isolate">
               {[
                 { title: "All-in-One Creator Care", desc: "라이브 스트리밍 전담 기술 지원 및 장비 제공", details: "라이브 스트리밍을 위한 전담 기술 지원. 실시간 채팅 매니저와 1,000만 원 상당의 고성능 방송 장비를 제공하여 오직 콘텐츠에만 집중할 수 있는 환경을 만듭니다.", icon: "ph:broadcast-bold" },
                 { title: "Visual Branding Lab", desc: "웹 화보 및 아티스트 브랜딩 전문 인프라", details: "웹 화보 및 아티스트 브랜딩을 위한 전문 인프라. 자택 근무 지원부터 스튜디오 메이크업, 촬영 장비 지원까지 크리에이터의 비주얼 영향력을 극대화합니다.", icon: "ph:camera-plus-bold" },
@@ -403,7 +403,7 @@ export default function App() {
                         exit={{ opacity: 0, scale: 0.9, y: i === 0 ? 0 : i === 4 ? 0 : "-50%" }}
                         transition={{ type: "spring", damping: 25, stiffness: 300 }}
                         className={`absolute left-0 right-0 z-[200] !rounded-3xl p-8 md:p-10 border border-primary shadow-[0_40px_80px_rgba(0,0,0,0.8),0_0_50px_rgba(255,51,102,0.3)] flex flex-col justify-between
-                          bg-[#0a0a0f]
+                          bg-[#111118]
                           ${i === 0 ? 'top-0 origin-top' : i === 4 ? 'bottom-0 origin-bottom' : 'top-1/2 origin-center'}`}
                         style={{ minHeight: '320px' }}
                         onClick={(e) => e.stopPropagation()}
