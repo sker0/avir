@@ -82,6 +82,9 @@ const brands = [
   { name: "YouTube", id: 10, logo: "/brands/youtube.png" },
   { name: "CELEBe", id: 11, logo: "/brands/celebe.png" },
   { name: "차다이렉트", id: 12, logo: "/brands/chadirect.png" },
+  { name: "allparking", id: 10, logo: "/brands/allparking.png" },
+  { name: "sumcamp", id: 11, logo: "/brands/sumcamp.jpg" },
+  { name: "klverLAB", id: 12, logo: "/brands/kleverlab.png" },
 ];
 
 export default function App() {
