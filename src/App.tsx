@@ -7,6 +7,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence, useScroll, useSpring, useTransform, useInView } from 'motion/react';
 import { Icon } from '@iconify/react';
 import UnicornScene from 'unicornstudio-react';
+import emailjs from '@emailjs/browser';
 
 // Counter Component
 function Counter({ value, duration = 2 }: { value: number; duration?: number }) {
@@ -55,7 +56,7 @@ const creators = [
 const KAKAO_CHANNEL_URL = "https://pf.kakao.com/_UxbkuX";
 
 // TODO: 문의 이메일 교체
-const CONTACT_EMAIL = "partnership@avir.mcn";
+const CONTACT_EMAIL = "avirhelp@gmail.com";
 
 // 실제 프로젝트 영상 (파일은 /public/videos/ 폴더에 넣기)
 const projects = [
@@ -81,18 +82,16 @@ const brands = [
   { name: "YouTube", id: 10, logo: "/brands/youtube.png" },
   { name: "CELEBe", id: 11, logo: "/brands/celebe.png" },
   { name: "차다이렉트", id: 12, logo: "/brands/chadirect.png" },
-  { name: "allparking", id: 12, logo: "/brands/allparking.png" },
-  { name: "숨캠핑", id: 12, logo: "/brands/sumcamp.jpg" },
-  { name: "클리버랩", id: 12, logo: "/brands/kleverlab.png" },
 ];
 
 export default function App() {
   const [logoError, setLogoError] = useState(false);
-  const [formStatus, setFormStatus] = useState<'idle' | 'sending' | 'sent'>('idle');
+  const [formStatus, setFormStatus] = useState<'idle' | 'sending' | 'sent' | 'error'>('idle');
   const [showSticky, setShowSticky] = useState(false);
   const [activeService, setActiveService] = useState<number | null>(null);
   const [selectedProject, setSelectedProject] = useState<number | null>(null);
   const scrollContainerRef = useRef<HTMLDivElement>(null);
+  const formRef = useRef<HTMLFormElement>(null);
 
   const { scrollYProgress } = useScroll({ container: scrollContainerRef });
   const scrollPercentage = useTransform(scrollYProgress, [0, 1], [0, 100]);
@@ -113,9 +112,19 @@ export default function App() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+    if (!formRef.current) return;
     setFormStatus('sending');
-    // TODO: EmailJS 연동 후 실제 전송 로직으로 교체
-    setTimeout(() => setFormStatus('sent'), 1500);
+    emailjs.sendForm(
+      'avircontact',
+      'contactavir',
+      formRef.current,
+      '9mwLosMHOcwSY_MX0'
+    ).then(() => {
+      setFormStatus('sent');
+      formRef.current?.reset();
+    }).catch(() => {
+      setFormStatus('error');
+    });
   };
 
   const Logo = ({ className }: { className?: string }) => (
@@ -681,12 +690,13 @@ export default function App() {
                 className="lg:col-span-7 bento-card bg-white/10 border-white/20 p-6 md:p-8"
               >
                 <h3 className="text-xl md:text-2xl font-bold mb-6 md:mb-8">문의 폼</h3>
-                <form onSubmit={handleSubmit} className="space-y-4 md:space-y-6">
+                <form ref={formRef} onSubmit={handleSubmit} className="space-y-4 md:space-y-6">
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
                     <div className="space-y-1 md:space-y-2">
                       <label className="text-xs md:text-sm font-medium text-white/60 ml-1">성함 / 활동명</label>
                       <input
                         required
+                        name="from_name"
                         type="text"
                         placeholder="Name / Creator Name"
                         className="w-full bg-black/40 border border-white/10 rounded-xl md:rounded-2xl px-4 md:px-6 py-3 md:py-4 focus:outline-none focus:border-primary transition-colors text-sm md:text-base"
@@ -696,6 +706,7 @@ export default function App() {
                       <label className="text-xs md:text-sm font-medium text-white/60 ml-1">연락처 / 이메일</label>
                       <input
                         required
+                        name="from_contact"
                         type="text"
                         placeholder="Contact / Email"
                         className="w-full bg-black/40 border border-white/10 rounded-xl md:rounded-2xl px-4 md:px-6 py-3 md:py-4 focus:outline-none focus:border-primary transition-colors text-sm md:text-base"
@@ -707,13 +718,14 @@ export default function App() {
                     <div className="relative">
                       <select
                         required
+                        name="inquiry_type"
                         defaultValue=""
                         className="w-full bg-black/40 border border-white/10 rounded-xl md:rounded-2xl px-4 md:px-6 py-3 md:py-4 focus:outline-none focus:border-primary transition-colors text-sm md:text-base appearance-none cursor-pointer"
                       >
                         <option value="" disabled className="bg-black text-white/40">문의 유형을 선택해주세요</option>
-                        <option value="creator" className="bg-black text-white">크리에이터 지원</option>
-                        <option value="collaboration" className="bg-black text-white">브랜드 콜라보레이션</option>
-                        <option value="etc" className="bg-black text-white">기타문의</option>
+                        <option value="크리에이터 지원" className="bg-black text-white">크리에이터 지원</option>
+                        <option value="브랜드 콜라보레이션" className="bg-black text-white">브랜드 콜라보레이션</option>
+                        <option value="기타문의" className="bg-black text-white">기타문의</option>
                       </select>
                       <Icon icon="ph:caret-down-bold" className="absolute right-4 md:right-6 top-1/2 -translate-y-1/2 text-white/40 pointer-events-none" />
                     </div>
@@ -722,6 +734,7 @@ export default function App() {
                     <label className="text-xs md:text-sm font-medium text-white/60 ml-1">문의 내용</label>
                     <textarea
                       required
+                      name="message"
                       rows={4}
                       placeholder="협업 제안 또는 문의 사항을 입력해주세요..."
                       className="w-full bg-black/40 border border-white/10 rounded-xl md:rounded-2xl px-4 md:px-6 py-3 md:py-4 focus:outline-none focus:border-primary transition-colors resize-none text-sm md:text-base"
@@ -735,6 +748,7 @@ export default function App() {
                     {formStatus === 'idle' && '문의 보내기'}
                     {formStatus === 'sending' && '전송 중...'}
                     {formStatus === 'sent' && '✓ 전송 완료!'}
+                    {formStatus === 'error' && '❌ 전송 실패 — 다시 시도해주세요'}
                   </button>
                 </form>
               </motion.div>
