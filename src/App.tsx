@@ -56,7 +56,7 @@ const creators = [
 const KAKAO_CHANNEL_URL = "https://pf.kakao.com/_UxbkuX";
 
 // TODO: 문의 이메일 교체
-const CONTACT_EMAIL = "avirhelp@gmail.com";
+const CONTACT_EMAIL = "partnership@avir.mcn";
 
 // 실제 프로젝트 영상 (파일은 /public/videos/ 폴더에 넣기)
 const projects = [
@@ -82,9 +82,9 @@ const brands = [
   { name: "YouTube", id: 10, logo: "/brands/youtube.png" },
   { name: "CELEBe", id: 11, logo: "/brands/celebe.png" },
   { name: "차다이렉트", id: 12, logo: "/brands/chadirect.png" },
-  { name: "allparking", id: 10, logo: "/brands/allparking.png" },
-  { name: "sumcamp", id: 11, logo: "/brands/sumcamp.jpg" },
-  { name: "klverLAB", id: 12, logo: "/brands/kleverlab.png" },
+  { name: "올파킹", id: 13, logo: "/brands/allparking.png" },
+  { name: "숨캠핑장", id: 14, logo: "/brands/sumcamp.jpg" },
+  { name: "클리버랩", id: 15, logo: "/brands/kleverlab.png" },
 ];
 
 export default function App() {
@@ -146,7 +146,7 @@ export default function App() {
   return (
     <div
       ref={scrollContainerRef}
-      className="h-screen overflow-y-auto snap-y snap-mandatory scroll-smooth bg-black text-white selection:bg-primary/30"
+      className="h-screen overflow-y-auto md:snap-y md:snap-mandatory scroll-smooth bg-black text-white selection:bg-primary/30"
     >
       {/* Scroll Progress */}
       <div className="fixed right-6 md:right-10 top-1/2 -translate-y-1/2 z-[100] flex flex-col items-center gap-4">
@@ -209,7 +209,7 @@ export default function App() {
       <div className="relative z-10 w-full">
 
         {/* ── Hero ── */}
-        <section className="h-screen w-full snap-start snap-always flex flex-col relative overflow-hidden">
+        <section className="min-h-screen md:h-screen w-full md:snap-start md:snap-always flex flex-col relative overflow-hidden">
           <nav className="absolute top-0 left-0 right-0 z-50 px-6 py-8 md:py-12 max-w-7xl mx-auto flex justify-between items-center" style={{ left: '50%', transform: 'translateX(-50%)', width: '100%' }}>
             <motion.div initial={{ opacity: 0, x: -20 }} animate={{ opacity: 1, x: 0 }}>
               <Logo className="h-10 md:h-14 w-auto object-contain drop-shadow-[0_0_20px_rgba(255,145,182,0.5)]" />
@@ -234,7 +234,7 @@ export default function App() {
               >
                 <div className="w-48 h-48 md:w-64 md:h-64 bg-primary/20 rounded-full flex items-center justify-center backdrop-blur-2xl border border-primary/30 relative group">
                   <div className="absolute inset-0 bg-primary/10 rounded-full blur-3xl group-hover:bg-primary/20 transition-all duration-700" />
-                  <Logo className="w-4/5 h-4/5 object-contain relative z-10 drop-shadow-[0_0_30px_rgba(255,145,182,0.6)]" />
+                  <Logo className="w-3/5 h-3/5 object-contain relative z-10 drop-shadow-[0_0_30px_rgba(255,145,182,0.6)]" />
                 </div>
               </motion.div>
 
@@ -277,7 +277,7 @@ export default function App() {
                   onClick={() => document.getElementById('partners')?.scrollIntoView({ behavior: 'smooth' })}
                   className="px-8 py-4 bg-white/10 backdrop-blur-md border border-white/20 text-white font-bold rounded-full hover:bg-white/20 transition-all"
                 >
-                  협력 크리에이터
+                  크리에이터 라인업
                 </button>
               </motion.div>
             </div>
@@ -301,38 +301,37 @@ export default function App() {
         </section>
 
         {/* ── About ── */}
-        <section id="about" className="h-screen w-full snap-start snap-always flex flex-col items-center justify-center relative overflow-hidden">
-          <div className="max-w-7xl mx-auto px-6 w-full flex flex-col h-full pt-28 pb-10">
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center flex-grow">
+        <section id="about" className="min-h-screen md:h-screen w-full md:snap-start md:snap-always flex flex-col items-center justify-center relative overflow-hidden py-20 md:py-0">
+          <div className="max-w-7xl mx-auto px-6 w-full flex flex-col h-full pt-4 md:pt-28 pb-10">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-20 items-center flex-grow">
               <motion.div
                 initial={{ opacity: 0, x: -50 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: false }}
                 transition={{ duration: 0.8 }}
-                className="space-y-8"
+                className="space-y-4 md:space-y-8"
               >
                 <div>
-                  <div className="flex items-center gap-2 mb-4">
+                  <div className="flex items-center gap-2 mb-2 md:mb-4">
                     <span className="text-primary font-mono tracking-[0.3em] uppercase text-xs">About</span>
                     <Logo className="h-4 w-auto object-contain opacity-80" />
                   </div>
-                  <h2 className="text-4xl md:text-6xl font-black leading-tight mb-6">
+                  <h2 className="text-3xl md:text-6xl font-black leading-tight mb-3 md:mb-6">
                     크리에이터의 가치를<br />
                     <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-accent-mint">시스템으로 설계하다</span>
                   </h2>
-                  <div className="h-1 w-20 bg-primary rounded-full mb-8" />
-                  <p className="text-lg md:text-xl text-white/70 leading-relaxed">
+                  <div className="h-1 w-20 bg-primary rounded-full mb-4 md:mb-8" />
+                  <p className="text-sm md:text-xl text-white/70 leading-relaxed">
                     아비르는 차세대 크리에이터를 위한 종합 콘텐츠 매니지먼트 기업입니다. 우리는 음악, 영상, 라이브 콘텐츠 등 다양한 영역에서 깊이 연결될 수 있도록 독창적인 시선, 진정성 있는 스토리, 독창적인 재능을 가진 인물들을 발굴하고, 그들이 자신만의 색깔과 영향력을 극대화할 수 있도록 전문적인 기획과 브랜딩을 제공합니다. 아비르는 단순한 매니지먼트를 넘어, 콘텐츠 제작, 유통, 브랜드 협업까지 아우르며 크리에이터의 가능성을 실현하는 든든한 파트너가 됩니다.
                   </p>
                 </div>
-                <div className="flex gap-8 items-center pt-4">
+                <div className="flex flex-wrap gap-6 items-center pt-4">
                   {[
                     { icon: "ph:users-three-bold", value: 50, label: "Creators" },
                     { icon: "ph:handshake-bold", value: 120, label: "Brands" },
                     { icon: "ph:rocket-launch-bold", value: 200, label: "Projects" },
                   ].map((stat, i) => (
                     <React.Fragment key={i}>
-                      {i > 0 && <div className="w-[1px] h-10 bg-white/10" />}
                       <div className="text-center group">
                         <div className="flex items-center justify-center gap-2 mb-1">
                           <Icon icon={stat.icon} className="text-primary/50 group-hover:text-primary transition-colors text-sm" />
@@ -375,7 +374,7 @@ export default function App() {
         </section>
 
         {/* ── Services ── */}
-        <section id="services" className="h-screen w-full snap-start snap-always flex flex-col items-center justify-center relative">
+        <section id="services" className="min-h-screen md:h-screen w-full md:snap-start md:snap-always flex flex-col items-center justify-center relative py-20 md:py-0">
           <div className="max-w-7xl mx-auto px-6 w-full flex flex-col h-full pt-24 pb-10">
             <div className="mb-2">
               <span className="text-primary font-mono tracking-widest uppercase text-sm">Our Services</span>
@@ -456,16 +455,13 @@ export default function App() {
         </section>
 
         {/* ── Portfolio ── */}
-        <section id="portfolio" className="h-screen w-full snap-start snap-always flex flex-col items-center justify-center relative overflow-hidden">
+        <section id="portfolio" className="min-h-screen md:h-screen w-full md:snap-start md:snap-always flex flex-col items-center justify-center relative overflow-hidden py-20 md:py-0">
           <div className="max-w-6xl mx-auto px-6 w-full flex flex-col h-full pt-28 pb-10">
             <div className="mb-4 md:mb-6 flex flex-col md:flex-row md:items-end justify-between gap-2">
               <div>
                 <span className="text-primary font-mono tracking-widest uppercase text-[10px] md:text-xs">Portfolio</span>
                 <h2 className="text-3xl md:text-4xl font-bold mt-1">프로젝트</h2>
               </div>
-              <button className="flex items-center gap-2 text-primary font-bold hover:gap-4 transition-all text-xs md:text-sm">
-                상세 페이지 바로가기 <Icon icon="line-md:arrow-right" className="text-lg" />
-              </button>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-4 flex-grow overflow-hidden">
@@ -544,7 +540,7 @@ export default function App() {
         </section>
 
         {/* ── Partners ── */}
-        <section id="partners" className="h-screen w-full snap-start snap-always flex flex-col items-center justify-center overflow-hidden relative">
+        <section id="partners" className="min-h-screen md:h-screen w-full md:snap-start md:snap-always flex flex-col items-center justify-center overflow-hidden relative py-20 md:py-0">
           <div className="max-w-7xl mx-auto w-full flex flex-col h-full pt-24 pb-8">
             <motion.div
               initial={{ opacity: 0, y: 40 }}
@@ -598,16 +594,16 @@ export default function App() {
                 <div className="flex flex-col gap-3">
                   <div className="relative flex overflow-hidden py-1">
                     <motion.div
-                      className="flex gap-8 md:gap-16 items-center"
+                      className="flex items-center"
                       animate={{ x: [0, "-50%"] }}
-                      transition={{ duration: 12, ease: "linear", repeat: Infinity }}
+                      transition={{ duration: 20, ease: "linear", repeat: Infinity, repeatType: "loop" }}
                     >
                       {[...brands, ...brands].map((brand, i) => (
-                        <div key={i} className="flex-shrink-0 flex items-center justify-center group">
+                        <div key={i} className="w-32 flex-shrink-0 flex items-center justify-center group px-4">
                           <img
                             src={brand.logo}
                             alt={brand.name}
-                            className="h-8 md:h-10 w-auto object-contain opacity-30 group-hover:opacity-100 transition-all duration-500 filter grayscale group-hover:grayscale-0"
+                            className="h-8 md:h-10 w-auto max-w-[100px] object-contain opacity-30 group-hover:opacity-100 transition-all duration-500 filter grayscale group-hover:grayscale-0"
                           />
                         </div>
                       ))}
@@ -615,16 +611,16 @@ export default function App() {
                   </div>
                   <div className="relative flex overflow-hidden py-1">
                     <motion.div
-                      className="flex gap-8 md:gap-16 items-center"
+                      className="flex items-center"
                       animate={{ x: ["-50%", 0] }}
-                      transition={{ duration: 12, ease: "linear", repeat: Infinity }}
+                      transition={{ duration: 20, ease: "linear", repeat: Infinity, repeatType: "loop" }}
                     >
                       {[...brands, ...brands].map((brand, i) => (
-                        <div key={i} className="flex-shrink-0 flex items-center justify-center group">
+                        <div key={i} className="w-32 flex-shrink-0 flex items-center justify-center group px-4">
                           <img
                             src={brand.logo}
                             alt={brand.name}
-                            className="h-8 md:h-10 w-auto object-contain opacity-30 group-hover:opacity-100 transition-all duration-500 filter grayscale group-hover:grayscale-0"
+                            className="h-8 md:h-10 w-auto max-w-[100px] object-contain opacity-30 group-hover:opacity-100 transition-all duration-500 filter grayscale group-hover:grayscale-0"
                           />
                         </div>
                       ))}
@@ -637,7 +633,7 @@ export default function App() {
         </section>
 
         {/* ── Contact ── */}
-        <section id="contact" className="h-screen w-full snap-start snap-always flex flex-col items-center justify-center relative overflow-hidden">
+        <section id="contact" className="min-h-screen md:h-screen w-full md:snap-start md:snap-always flex flex-col items-center justify-center relative overflow-hidden py-20 md:py-0">
           <div className="max-w-7xl mx-auto px-6 w-full flex flex-col h-full pt-28 pb-10">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-12 flex-grow items-center">
               <motion.div
