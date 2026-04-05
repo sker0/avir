@@ -689,7 +689,7 @@ export default function App() {
                 transition={{ duration: 0.8, delay: 0.2 }}
                 className="lg:col-span-7 bento-card bg-white/10 border-white/20 p-6 md:p-8"
               >
-                <h3 className="text-xl md:text-2xl font-bold mb-6 md:mb-8">문의 폼</h3>
+                <h3 className="text-xl md:text-2xl font-bold mb-6 md:mb-8">CONTACT</h3>
                 <form ref={formRef} onSubmit={handleSubmit} className="space-y-4 md:space-y-6">
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
                     <div className="space-y-1 md:space-y-2">
