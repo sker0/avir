@@ -210,35 +210,41 @@ export default function App() {
 
       <div className="relative z-10 w-full">
 
-        {/* ── Hero ── */}
-        <section className="min-h-screen md:h-screen w-full md:snap-start md:snap-always flex flex-col relative overflow-hidden">
-          <nav className="absolute top-0 left-0 right-0 z-50 px-6 py-8 md:py-12 max-w-7xl mx-auto flex justify-between items-center" style={{ left: '50%', transform: 'translateX(-50%)', width: '100%' }}>
-            <motion.div initial={{ opacity: 0, x: -20 }} animate={{ opacity: 1, x: 0 }}>
-              <Logo className="h-10 md:h-14 w-auto object-contain drop-shadow-[0_0_20px_rgba(255,145,182,0.5)]" />
-            </motion.div>
-            <motion.div initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }} className="hidden md:flex gap-8 text-sm font-medium text-white/70">
-              <a href="#about" className="hover:text-primary transition-colors">About</a>
-              <a href="#services" className="hover:text-primary transition-colors">Services</a>
-              <a href="#portfolio" className="hover:text-primary transition-colors">Portfolio</a>
-              <a href="#partners" className="hover:text-primary transition-colors">Partners</a>
-              <a href="#contact" className="hover:text-primary transition-colors">Contact</a>
-            </motion.div>
-          </nav>
+            {/* ── Hero ── */}
+            <section className="min-h-screen md:h-screen w-full md:snap-start md:snap-always flex flex-col relative overflow-hidden">
 
-          <div className="max-w-7xl mx-auto px-6 w-full flex flex-col justify-center items-center h-full relative z-10">
-            <div className="flex flex-col items-center text-center">
+              {/* 상단 네비게이션: absolute로 띄워서 메인 레이아웃 계산에서 제외 */}
+              <nav className="absolute top-0 left-1/2 -translate-x-1/2 z-50 px-6 py-8 md:py-12 max-w-7xl w-full flex justify-between items-center">
+                <motion.div initial={{ opacity: 0, x: -20 }} animate={{ opacity: 1, x: 0 }}>
+                  <Logo className="h-10 md:h-14 w-auto object-contain drop-shadow-[0_0_20px_rgba(255,145,182,0.5)]" />
+                </motion.div>
+                <motion.div initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }} className="hidden md:flex gap-8 text-sm font-medium text-white/70">
+                  <a href="#about" className="hover:text-primary transition-colors">About</a>
+                  <a href="#services" className="hover:text-primary transition-colors">Services</a>
+                  <a href="#portfolio" className="hover:text-primary transition-colors">Portfolio</a>
+                  <a href="#partners" className="hover:text-primary transition-colors">Partners</a>
+                  <a href="#contact" className="hover:text-primary transition-colors">Contact</a>
+                </motion.div>
+              </nav>
+
+              {/* 메인 콘텐츠 영역: flex-1과 justify-center로 화면 정중앙 배치 */}
+              <div className="flex-1 flex flex-col justify-center items-center px-6 pt-20 md:pt-0 relative z-10">
+                <div className="max-w-7xl w-full flex flex-col items-center text-center">
+
+              {/* 로고 원형 아이콘 */}
               <motion.div
-                initial={{ opacity: 0, y: 60, scale: 0.9 }}
-                animate={{ opacity: 1, y: 0, scale: 1 }}
-                transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
-                className="mb-8 md:mb-12"
+                  initial={{ opacity: 0, y: 60, scale: 0.9 }}
+                  animate={{ opacity: 1, y: 0, scale: 1 }}
+                  transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
+                  className="mb-8 md:mb-12"
               >
-                <div className="w-48 h-48 md:w-64 md:h-64 bg-primary/20 rounded-full flex items-center justify-center backdrop-blur-2xl border border-primary/30 relative group">
+                <div className="w-40 h-40 md:w-64 md:h-64 bg-primary/20 rounded-full flex items-center justify-center backdrop-blur-2xl border border-primary/30 relative group">
                   <div className="absolute inset-0 bg-primary/10 rounded-full blur-3xl group-hover:bg-primary/20 transition-all duration-700" />
                   <Logo className="w-3/5 h-3/5 object-contain relative z-10 drop-shadow-[0_0_30px_rgba(255,145,182,0.6)]" />
                 </div>
               </motion.div>
 
+              {/* 텍스트 및 버튼 섹션 */}
               <motion.h1
                   initial={{ opacity: 0, y: 40 }}
                   whileInView={{ opacity: 1, y: 0 }}
@@ -247,7 +253,7 @@ export default function App() {
                   className="text-4xl md:text-7xl font-black mb-6 tracking-tight leading-tight break-keep"
               >
                 크리에이터의 가치를 <span className="text-primary">시스템</span>으로 증명하다<br />
-                <span className="text-white/40 text-3xl md:text-5xl">Proving Creator Value through Systems</span>
+                <span className="text-white/40 text-2xl md:text-5xl">Proving Creator Value through Systems</span>
               </motion.h1>
 
               <motion.p
