@@ -265,7 +265,7 @@ export default function App() {
                   onClick={() => document.getElementById('partners')?.scrollIntoView({ behavior: 'smooth' })}
                   className="px-8 py-4 bg-white/10 backdrop-blur-md border border-white/20 text-white font-bold rounded-full hover:bg-white/20 transition-all"
                 >
-                  크리에이터 라인업
+                  협력 크리에이터
                 </button>
               </motion.div>
             </div>
