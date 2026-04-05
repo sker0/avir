@@ -56,7 +56,7 @@ const creators = [
 const KAKAO_CHANNEL_URL = "https://pf.kakao.com/_UxbkuX";
 
 // TODO: 문의 이메일 교체
-const CONTACT_EMAIL = "partnership@avir.mcn";
+const CONTACT_EMAIL = "avirhelp@gmail.com";
 
 // 실제 프로젝트 영상 (파일은 /public/videos/ 폴더에 넣기)
 const projects = [
